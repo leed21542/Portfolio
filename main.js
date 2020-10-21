@@ -12,6 +12,7 @@ document.addEventListener('scroll', () => {
     }
 });
 
+
 //넷바 메뉴를 클릭하면 그 메뉴로 이동
 
 const navbarMenu = document.querySelector('.navbar__menu');
@@ -25,6 +26,18 @@ navbarMenu.addEventListener('click',(event) => {
 
     console.log(event.target.dataset.link);
 
-    const scrollTo = document.querySelector(link);
-    scrollTo.scrollIntoView({behavior:'smooth'});
+    scrollIntoView(link);
 });
+
+
+//contact me 클릭시 contact로 이동
+
+const contact = document.querySelector('.home__contact');
+contact.addEventListener('click',() => {
+    scrollIntoView('#contact');
+});
+
+function scrollIntoView(selector){
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({behavior:'smooth'});
+}
