@@ -473,6 +473,28 @@ p {
   color: var(--color-yellow);
 }
 
+/* Scroll */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 300ms ease-in;
+  pointer-events: none;
+}
+
+.arrow-up.visible {
+  opacity: 1;
+  pointer-events: auto;
+  /* 클릭 안되게 한다. */
+}
+
 /* 반응형 설정 - 페이지가 작아지면 거기에 맞게 사이즈 조정 */
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {

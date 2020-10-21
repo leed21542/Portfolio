@@ -47,9 +47,21 @@ document.addEventListener('scroll', () => {
 
 
 
+// 화면 내리면 한번에 올라가는 버튼
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+    if(window.scrollY > homeHeight/2){ //화면이 절반 이상 내려오면
+        arrowUp.classList.add('visible');
+    }else{
+        arrowUp.classList.remove('visible');
+    }
+});
 
+// 클릭하면 홈으로 올라간다.
 
-
+arrowUp.addEventListener('click', () =>{
+    scrollIntoView('#home');
+});
 
 
 
