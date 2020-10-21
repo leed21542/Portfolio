@@ -37,6 +37,22 @@ contact.addEventListener('click',() => {
     scrollIntoView('#contact');
 });
 
+// 홈 화면 내리면 투명하게 바뀌는 효과
+
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+    home.style.opacity = 1 - window.scrollY/homeHeight;
+});
+
+
+
+
+
+
+
+
+
 function scrollIntoView(selector){
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior:'smooth'});
