@@ -463,7 +463,7 @@ p {
   color: var(--color-yellow);
 }
 
-/* For below 768px screen width */
+/* 반응형 설정 - 페이지가 작아지면 거기에 맞게 사이즈 조정 */
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {
     display: block;
