@@ -169,6 +169,11 @@ p {
   padding: 8px 12px;
   border: 2px solid var(--color-white);
   border-radius: var(--size-border-radius);
+  cursor: pointer;
+}
+
+.home__contact:hover {
+  background-color: var(--color-orange);
 }
 
 .section {
@@ -313,6 +318,7 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .category_btn.selected,
@@ -334,9 +340,9 @@ p {
   height: 24px;
   line-height: 24px;
   display: inline-block;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -506,8 +512,19 @@ p {
 
 /* 반응형 설정 - 페이지가 작아지면 거기에 맞게 사이즈 조정 */
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size 미디어 쿼리일 때에는 이 변수들로 다시 적용된다. */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
   .navbar__toggle-btn {
     display: block;
+    top: 16px;
+    right: 16px;
+    font-size: var(--font-medium);
   }
   #navbar {
     flex-direction: column;
@@ -530,8 +547,15 @@ p {
     display: block;
   }
 
+  .section {
+    padding: 16px;
+    padding-top: 40px;
+  }
+
   .about__majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 
   .major.left {
@@ -543,19 +567,46 @@ p {
   }
 
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category_btn {
+    margin: 4px 0;
+    width: 100%;
+  }
+
   .project {
     flex-grow: 1;
   }
 
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .testinomial__avatar {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+  }
+  .testinomial__avatar:nth-child(even),
+  .testinomial__avatar:nth-child(odd) {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+  .testimonial__speech-bubble {
+    order: 1;
+  }
+
+  .arrow-up {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    right: 16px;
+    bottom: 16px;
   }
 }
