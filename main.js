@@ -64,6 +64,31 @@ arrowUp.addEventListener('click', () =>{
 });
 
 
+//Projects
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+
+workBtnContainer.addEventListener('click', (e) =>{
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+    if(filter == null){
+        return;
+    }
+
+    projectContainer.classList.add('anim-out');
+
+    setTimeout( () => {
+        projects.forEach((project) => { //project배열에 있는 값 하나씩 받아온다. for문이랑 동일
+            if(filter === '*' || filter === project.dataset.type){
+                project.classList.remove('invisible');
+            }else{
+                project.classList.add('invisible');
+            }
+        });
+        projectContainer.classList.remove('anim-out');
+    }, 300)
+});
+
 
 function scrollIntoView(selector){
     const scrollTo = document.querySelector(selector);
